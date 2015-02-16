@@ -1,0 +1,6 @@
+FROM ubuntu:14.04 # baseado no ubuntu 14.04
+RUN apt-get update # rode esse comando
+RUN apt-get install apache2 -y # lembre de confirmar automáticamente, pois você não vai ter um tty
+ADD . /var/www/html/drupal  # copia os arquivos do projeto
+EXPOSE 80 # expõe a porta 80
+CMD [“apache”,”-D”,”FOREGROUND”] # esse é o comando padrão
